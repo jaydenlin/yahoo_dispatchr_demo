@@ -1,0 +1,39 @@
+{
+    "name": "y_dispatchr_demo",
+    "version": "1.0.0",
+    "description": "test yahoo dispacthr",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "install": "npm install",
+        "dev": "./node_modules/.bin/webpack-dev-server --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch",
+        "build": "gulp build && webpack -p --config webpack.config.js --progress --profile --colors"
+    },
+    "author": "jdlin",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack-dev-server": "^1.7.0"
+    },
+    "dependencies": {
+        "dispatchr": "^0.2.12",
+        "css-loader": "~0.6.8",
+        "del": "^1.1.1",
+        "extract-text-webpack-plugin": "^0.3.6",
+        "gulp": "^3.8.10",
+        "gulp-image-optimization": "^0.1.3",
+        "gulp-inject": "^1.1.1",
+        "gulp-util": "^3.0.1",
+        "image-webpack-loader": "^1.0.0",
+        "jsx-loader": "^0.12.2",
+        "mocha": "^2.1.0",
+        "mocha-loader": "^0.7.0",
+        "node-jsx": "^0.12.4",
+        "react": "^0.12.2",
+        "react-addons": "^0.9.0",
+        "react-hot-loader": "^1.0.7",
+        "sass-loader": "0.0.1",
+        "style-loader": "~0.6.2",
+        "webpack": "^1.4.14"
+    }
+
+}
