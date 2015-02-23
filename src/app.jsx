@@ -1,5 +1,6 @@
 var Dispatchr = require('dispatchr')(),
     ExampleStore = require('./exampleStore.js'),
+    pubsub=require('pubsub-js'),
     context = {};
     Dispatchr.registerStore(ExampleStore);
     var dispatcher = new Dispatchr(context);
@@ -10,16 +11,34 @@ var Dispatchr = require('dispatchr')(),
 
 var Application = React.createClass({
   getInitialState:function(){
+
     return {
-        showtext:'Nice'
+        dummy:'',
+        showtext:dispatcher.getStore(ExampleStore).navigating
     
     }
   },
+  componentDidMount:function(){
+/*
+    var that=this;
+    pubsub.subscribe('refresh',function(event,data){
+        that.setState({dummy:''});
+        
+        console.log(data);
+     }); 
+*/
+  
+  },
   handleClick:function(){
+  
+       //send name to App2
        dispatcher.dispatch('NAVIGATE', {'name':'Jayden'});
-       this.setState({showtext:dispatcher.getStore(ExampleStore).navigating});
+
+       //this.setState({showtext:dispatcher.getStore(ExampleStore).navigating});
+      
   },
   render: function() {
+   console.log('1 render');
     return (
     <div>
         <h1 onClick={this.handleClick}>Hello! Rakuten!{this.state.showtext}</h1>
@@ -34,16 +53,29 @@ React.render(<Application/>, document.getElementById('content'));
 
 var Application2 = React.createClass({
   getInitialState:function(){
+    
     return {
-        showtext:'Nice'
+        dummy:'',
+        showtext:dispatcher.getStore(ExampleStore).navigating
     
     }
   },
+  componentDidMount:function(){
+/*
+     var that=this;
+     pubsub.subscribe('refresh',function(event,data){
+        that.setState({dummy:''});
+        console.log(data);
+     }); 
+*/
+  
+  },
   handleClick:function(){
-       dispatcher.dispatch('NAVIGATE', {'name':'Jayden'});
-       this.setState({showtext:dispatcher.getStore(ExampleStore).navigating});
+       //dispatcher.dispatch('NAVIGATE', {'name':'Jayden'});
+       //this.setState({showtext:dispatcher.getStore(ExampleStore).navigating});
   },
   render: function() {
+    console.log('2 render');
     return (
     <div>
         <h1 onClick={this.handleClick}>Hello! Rakuten!{this.state.showtext}</h1>
