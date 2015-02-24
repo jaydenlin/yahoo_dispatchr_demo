@@ -3,18 +3,28 @@ var path = require("path"),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+    context: __dirname,
     cache: true,
     entry: {
 
         'app': './src/app.jsx'
 
     },
+//    node: {
+//      fs: "empty"
+//    },
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: '/',
         filename: 'js/[name].js'
     },
     module: {
+//        postLoaders: [
+//            {
+//                test: /\.js$/,
+//                loader: "transform?brfs"
+//            }
+//        ],
         loaders: [
             {
                 test: /\.css$/,
@@ -24,10 +34,18 @@ module.exports = {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract("style-loader", "sass-loader")
          },
+          {
+                test: /\.l20n$/,
+                loader: "transform/cacheable?brfs"
+         },   
+        {
+                test: /\.js$/,
+                loader: "transform?brfs"
+         },
 
             {
                 test: /\.jsx$/,
-                loader: "jsx-loader?insertPragma=React.DOM&harmony"
+                loader: "transform?brfs!jsx-loader?insertPragma=React.DOM&harmony"
          },
             {
                 test: /.*\.(gif|png|jpg)$/,
