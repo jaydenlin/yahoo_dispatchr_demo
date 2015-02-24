@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "npm install",
     "dev": "./node_modules/.bin/webpack-dev-server --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch",
-    "build": "webpack -p --config webpack.config.js --progress --profile --colors"
+    "build": "node_modules/.bin/webpack -p --config webpack.config.js --progress --profile --colors"
   },
   "author": "jdlin",
   "license": "ISC",
@@ -36,6 +36,7 @@
     "sass-loader": "0.0.1",
     "style-loader": "~0.6.2",
     "transform-loader": "^0.2.1",
-    "webpack": "^1.4.14"
+    "webpack": "^1.6.0",
+    "webpack-dev-server": "^1.7.0"
   }
 }

@@ -3,7 +3,7 @@ var path = require("path"),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    context: __dirname,
+//    context: __dirname,
     cache: true,
     entry: {
 
@@ -34,18 +34,14 @@ module.exports = {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract("style-loader", "sass-loader")
          },
-          {
-                test: /\.l20n$/,
-                loader: "transform/cacheable?brfs"
-         },   
-        {
-                test: /\.js$/,
-                loader: "transform?brfs"
-         },
+//        {
+//                test: /\.js$/,
+//                loader: "transform?brfs"
+//         },
 
             {
-                test: /\.jsx$/,
-                loader: "transform?brfs!jsx-loader?insertPragma=React.DOM&harmony"
+                test: /\.js(x?)$/,
+                loaders: ["jsx-loader?insertPragma=React.DOM&harmony"]
          },
             {
                 test: /.*\.(gif|png|jpg)$/,
@@ -60,6 +56,7 @@ module.exports = {
     externals: {
         //don't bundle the 'react' npm package with our bundle.js
         //        //but get it from a global 'React' variable
+//        fs:'null',
         'react': 'React'
     },
     resolve: {

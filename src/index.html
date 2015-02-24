@@ -6,6 +6,9 @@
 <title>ad</title>
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css">
+ 
+<link rel="localization" href="locales/manifest.json">
+    
 </head>
 
 <body>
@@ -13,10 +16,25 @@
 <div id="content2"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react-with-addons.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script type="application/l20n" src="locales/strings.l20n"></script>
-    
 <script src="js/app.js"></script>
- <p data-l10n-id="hello"></p>
+    
+<!--
+<script type="application/l10n-data+json">
+      {
+        "build": "prod",
+        "mode": "multi"
+      }
+</script>    
+-->
+
+<script type="application/javascript" src="locales/l20n.js"></script>    
+ <script>
+      // L20n and document.l10n are now available
+      document.l10n.ready(function() {
+        console.log("Document's context is ready");
+      });
+</script>       
+
 </body>
 
 </html>

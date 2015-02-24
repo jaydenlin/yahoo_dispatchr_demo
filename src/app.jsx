@@ -1,14 +1,23 @@
 var Dispatchr = require('dispatchr')(),
     ExampleStore = require('./exampleStore.js'),
-    L20n = require('!transform?brfs!l20n');
     context = {};
     Dispatchr.registerStore(ExampleStore);
     var dispatcher = new Dispatchr(context);
     
  
 /*require('../libs/l20n.js');*/
-var test = require('fs');
-test.readFile('./test.txt', 'utf8',function(){});
+
+/*
+var fs = require('fs');
+console.log(fs.readFile);
+*/
+
+/*
+require('fs').readFile('./test.txt', 'utf8',function(err,data){                                                                              
+    console.log(data);
+});
+*/
+
 
 var Application = React.createClass({
   getInitialState:function(){
@@ -37,10 +46,12 @@ var Application = React.createClass({
   }
 });
 
+/*
 console.log(L20n.getContext());
 ctx = L20n.getContext();
 ctx.linkResource('../locales/strings.l20n');
 ctx.requestLocales();
+*/
 /*ctx.addResource('<hello "Hello, world!">');*/
 
 /*
