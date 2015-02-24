@@ -16,7 +16,7 @@
 <div id="content2"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react-with-addons.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="js/app.js"></script>
+
     
 <!--
 <script type="application/l10n-data+json">
@@ -30,11 +30,12 @@
 <script type="application/javascript" src="locales/l20n.js"></script>    
  <script>
       // L20n and document.l10n are now available
-      document.l10n.ready(function() {
+      document.l10n.ready(function(a) {
         console.log("Document's context is ready");
+        console.log( document.l10n.getEntitySync("hello")); 
       });
 </script>       
 
 </body>
-
+<script src="js/app.js"></script>
 </html>

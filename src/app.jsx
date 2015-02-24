@@ -31,7 +31,7 @@ var Application = React.createClass({
        this.setState({showtext:dispatcher.getStore(ExampleStore).navigating});
   },
   componentDidMount:function(){
-    
+    console.log("react mounted");  
 /*
    
 */
@@ -66,9 +66,9 @@ ctx.localize(['hello'], function(l10n) {
 
 */
 
-
+setTimeout(function(){
 React.render(<Application/>, document.getElementById('content'));
-
+},1000);
 
  
 
